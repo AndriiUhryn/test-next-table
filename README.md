@@ -33,6 +33,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Create .env file
+Create .env file
+Add correct data from .env.test file
+
 ## Create local DB
 
 ```create database investors;```
