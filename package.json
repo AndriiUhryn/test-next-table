@@ -2,19 +2,73 @@
   "name": "test-next-table",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">= 14 < 15"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "start:cms": "npx prisma studio",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
+    "@prisma/client": "^3.0.2",
+    "classnames": "2.3.1",
     "next": "11.1.2",
+    "prop-types": "15.7.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "4.2.0",
+    "react-perfect-scrollbar": "1.5.8",
+    "react-toastify": "8.0.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "8.3.0",
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/user-event": "13.2.1",
+    "autoprefixer": "10.3.4",
+    "babel-jest": "27.1.1",
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2"
+    "eslint-config-next": "11.1.2",
+    "jest": "27.1.1",
+    "jest-canvas-mock": "2.3.1",
+    "jest-dom": "4.0.0",
+    "next-router-mock": "0.2.4",
+    "postcss": "8.3.6",
+    "pre-commit": "1.2.2",
+    "prettier": "2.4.0",
+    "prisma": "3.0.2",
+    "tailwindcss": "2.2.14"
   }
 }
